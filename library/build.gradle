@@ -22,5 +22,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly rootProject.ext.dependencies["support-annotations"]
 }

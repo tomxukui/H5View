@@ -3,6 +3,8 @@ package com.xukui.library.h5view;
 import android.app.Application;
 import android.content.Context;
 
+import com.xukui.library.h5view.builder.X5Builder;
+
 public class H5Client {
 
     private Application mContext;
@@ -24,6 +26,20 @@ public class H5Client {
 
     public Context getContext() {
         return mContext;
+    }
+
+    /**
+     * 组建系统浏览器内核
+     */
+    public void builderCore(Application context) {
+        mContext = context;
+    }
+
+    /**
+     * 组建X5浏览器内核
+     */
+    public X5Builder builderX5Core() {
+        return new X5Builder(mContext);
     }
 
 }
