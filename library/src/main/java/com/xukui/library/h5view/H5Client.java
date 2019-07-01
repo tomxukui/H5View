@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 
 import com.tencent.smtt.export.external.TbsCoreSettings;
 import com.tencent.smtt.sdk.QbSdk;
-import com.xukui.library.h5view.callback.OnX5WebInitListener;
+import com.xukui.library.h5view.x5.OnX5WebInitListener;
 
 import java.util.HashMap;
 

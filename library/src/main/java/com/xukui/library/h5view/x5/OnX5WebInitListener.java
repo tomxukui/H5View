@@ -1,4 +1,4 @@
-package com.xukui.library.h5view.callback;
+package com.xukui.library.h5view.x5;
 
 public interface OnX5WebInitListener {
 
