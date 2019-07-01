@@ -7,7 +7,7 @@ import com.xukui.library.h5view.builder.X5Builder;
 
 public class H5Client {
 
-    private Application mContext;
+    private Context mContext;
 
     private H5Client() {
     }
@@ -20,8 +20,9 @@ public class H5Client {
         private static final H5Client INSTANCE = new H5Client();
     }
 
-    public void init(Application context) {
-        mContext = context;
+    public H5Client init(Application application) {
+        mContext = application.getApplicationContext();
+        return this;
     }
 
     public Context getContext() {
@@ -29,16 +30,9 @@ public class H5Client {
     }
 
     /**
-     * 组建系统浏览器内核
-     */
-    public void builderCore(Application context) {
-        mContext = context;
-    }
-
-    /**
      * 组建X5浏览器内核
      */
-    public X5Builder builderX5Core() {
+    public X5Builder setupX5Core() {
         return new X5Builder(mContext);
     }
 
