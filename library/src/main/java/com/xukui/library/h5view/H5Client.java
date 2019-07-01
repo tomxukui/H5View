@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 
 import com.tencent.smtt.export.external.TbsCoreSettings;
 import com.tencent.smtt.sdk.QbSdk;
-import com.xukui.library.h5view.x5.OnX5WebInitListener;
+import com.xukui.library.h5view.x5.OnX5InitListener;
 
 import java.util.HashMap;
 
@@ -37,7 +37,7 @@ public class H5Client {
     /**
      * 组建X5浏览器内核
      */
-    public void setupX5Core(boolean downloadWithoutWifi, @Nullable final OnX5WebInitListener listener) {
+    public void setupX5Core(boolean downloadWithoutWifi, @Nullable final OnX5InitListener listener) {
         HashMap<String, Object> map = new HashMap<>();
         map.put(TbsCoreSettings.TBS_SETTINGS_USE_SPEEDY_CLASSLOADER, true);
         QbSdk.initTbsSettings(map);
