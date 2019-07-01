@@ -11,7 +11,7 @@ public class Mapp extends Application {
         super.onCreate();
         H5Client.getInstance()
                 .init(this)
-                .setupX5Core();
+                .setupX5Core(true, null);
     }
 
 }
