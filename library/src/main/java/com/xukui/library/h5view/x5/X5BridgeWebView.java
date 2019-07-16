@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 
 import com.tencent.smtt.sdk.WebView;
+import com.xukui.library.h5view.callback.OnWebScrollListener;
 import com.xukui.library.h5view.jsbridge.BridgeHandler;
 import com.xukui.library.h5view.jsbridge.CallBackFunction;
 import com.xukui.library.h5view.jsbridge.DefaultHandler;
@@ -24,11 +25,11 @@ public class X5BridgeWebView extends WebView implements WebViewJavascriptBridge 
 
     public static final String toLoadJs = "WebViewJavascriptBridge.js";
 
-    Map<String, CallBackFunction> responseCallbacks = new HashMap<String, CallBackFunction>();
-    Map<String, BridgeHandler> messageHandlers = new HashMap<String, BridgeHandler>();
+    Map<String, CallBackFunction> responseCallbacks = new HashMap<>();
+    Map<String, BridgeHandler> messageHandlers = new HashMap<>();
     BridgeHandler defaultHandler = new DefaultHandler();
 
-    private List<Message> startupMessage = new ArrayList<Message>();
+    private List<Message> startupMessage = new ArrayList<>();
 
     public List<Message> getStartupMessage() {
         return startupMessage;
@@ -220,6 +221,20 @@ public class X5BridgeWebView extends WebView implements WebViewJavascriptBridge 
      */
     public void callHandler(String handlerName, String data, CallBackFunction callBack) {
         doSend(handlerName, data, callBack);
+    }
+
+    @Override
+    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+        super.onScrollChanged(l, t, oldl, oldt);
+        if (mOnWebScrollListener != null) {
+            mOnWebScrollListener.onScrollChanged(l, t, oldl, oldt);
+        }
+    }
+
+    private OnWebScrollListener mOnWebScrollListener;
+
+    public void setOnWebScrollListener(OnWebScrollListener listener) {
+        mOnWebScrollListener = listener;
     }
 
 }
